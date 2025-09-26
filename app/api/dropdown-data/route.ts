@@ -3,10 +3,10 @@ import { dbFunctions } from '@/lib/database';
 
 export async function GET() {
   try {
-    const distributors = dbFunctions.getDistributors();
-    const cabinetTypes = dbFunctions.getCabinetTypes();
-    const tlsConnections = dbFunctions.getTLSConnections();
-    const detectionIOs = dbFunctions.getDetectionIOs();
+    const distributors = await dbFunctions.getDistributors();
+    const cabinetTypes = await dbFunctions.getCabinetTypes();
+    const tlsConnections = await dbFunctions.getTLSConnections();
+    const detectionIOs = await dbFunctions.getDetectionIOs();
 
     return NextResponse.json({
       distributors,

@@ -14,7 +14,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Get user from database
-    const user = dbFunctions.getUserByUsername(username);
+    const user = await dbFunctions.getUserByUsername(username);
     if (!user) {
       return NextResponse.json(
         { error: 'Invalid credentials' },

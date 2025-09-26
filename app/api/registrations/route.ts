@@ -77,7 +77,7 @@ export async function POST(request: NextRequest) {
       timingFiles: timingFilePaths
     };
 
-    const result = dbFunctions.createRegistration(registrationData);
+    const result = await dbFunctions.createRegistration(registrationData);
 
     return NextResponse.json(
       { 
@@ -114,7 +114,7 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    const registrations = dbFunctions.getAllRegistrations();
+    const registrations = await dbFunctions.getAllRegistrations();
     
     return NextResponse.json(
       { registrations },
