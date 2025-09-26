@@ -2,7 +2,10 @@ import sqlite3 from 'sqlite3';
 import { z } from 'zod';
 
 // Database schema - using sqlite3 for better Windows compatibility
-const db = new sqlite3.Database('registrations.db');
+const dbPath = process.env.NODE_ENV === 'production' 
+  ? '/tmp/registrations.db' 
+  : 'registrations.db';
+const db = new sqlite3.Database(dbPath);
 
 // Initialize database with tables and default data
 const initializeDatabase = () => {

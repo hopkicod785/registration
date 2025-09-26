@@ -6,7 +6,9 @@ import { saveFile, saveMultipleFiles } from '@/lib/file-upload';
 
 export async function POST(request: NextRequest) {
   try {
+    console.log('Registration API called');
     const formData = await request.formData();
+    console.log('Form data received');
     
     // Extract form data
     const data = {
@@ -77,7 +79,9 @@ export async function POST(request: NextRequest) {
       timingFiles: timingFilePaths
     };
 
+    console.log('Creating registration with data:', registrationData);
     const result = await dbFunctions.createRegistration(registrationData);
+    console.log('Registration created successfully:', result);
 
     return NextResponse.json(
       { 
@@ -89,7 +93,7 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     console.error('Registration creation error:', error);
     return NextResponse.json(
-      { error: 'Failed to create registration' },
+      { error: 'Failed to create registration', details: error instanceof Error ? error.message : 'Unknown error' },
       { status: 500 }
     );
   }
