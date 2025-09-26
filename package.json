@@ -29,7 +29,7 @@
     "zod": "^3.22.4",
     "react-hook-form": "^7.48.2",
     "@hookform/resolvers": "^3.3.2",
-    "next-auth": "^4.24.5",
+    "next-auth": "^4.24.5"
   },
   "devDependencies": {
     "eslint": "^8",
