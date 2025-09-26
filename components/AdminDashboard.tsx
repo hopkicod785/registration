@@ -290,7 +290,7 @@ export default function AdminDashboard({ user, onLogout }: AdminDashboardProps) 
                       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                         <button
                           onClick={() => setSelectedRegistration(registration)}
-                          className="text-primary-600 hover:text-primary-900"
+                          className="text-indigo-400 hover:text-indigo-300 font-medium transition-colors"
                         >
                           View Details
                         </button>
@@ -306,16 +306,16 @@ export default function AdminDashboard({ user, onLogout }: AdminDashboardProps) 
 
       {/* Registration Details Modal */}
       {selectedRegistration && (
-        <div className="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50">
-          <div className="relative top-20 mx-auto p-5 border w-11/12 md:w-3/4 lg:w-1/2 shadow-lg rounded-md bg-white">
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm overflow-y-auto h-full w-full z-50">
+          <div className="relative top-20 mx-auto p-6 border border-slate-700 w-11/12 md:w-3/4 lg:w-1/2 shadow-2xl rounded-xl glass-effect">
             <div className="mt-3">
-              <div className="flex justify-between items-center mb-4">
-                <h3 className="text-lg font-medium text-gray-900">
+              <div className="flex justify-between items-center mb-6">
+                <h3 className="text-xl font-bold text-slate-100">
                   Registration Details
                 </h3>
                 <button
                   onClick={() => setSelectedRegistration(null)}
-                  className="text-gray-400 hover:text-gray-600"
+                  className="text-slate-400 hover:text-slate-200 transition-colors p-2 rounded-lg hover:bg-slate-700"
                 >
                   <span className="sr-only">Close</span>
                   <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -327,46 +327,46 @@ export default function AdminDashboard({ user, onLogout }: AdminDashboardProps) 
               <div className="space-y-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700">Intersection Name</label>
-                    <p className="mt-1 text-sm text-gray-900">{selectedRegistration.intersection_name}</p>
+                    <label className="block text-sm font-semibold text-slate-300">Intersection Name</label>
+                    <p className="mt-1 text-sm text-slate-100">{selectedRegistration.intersection_name}</p>
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700">End User</label>
-                    <p className="mt-1 text-sm text-gray-900">{selectedRegistration.end_user}</p>
+                    <label className="block text-sm font-semibold text-slate-300">End User</label>
+                    <p className="mt-1 text-sm text-slate-100">{selectedRegistration.end_user}</p>
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700">Distributor</label>
-                    <p className="mt-1 text-sm text-gray-900">
+                    <label className="block text-sm font-semibold text-slate-300">Distributor</label>
+                    <p className="mt-1 text-sm text-slate-100">
                       {selectedRegistration.distributor}
                       {selectedRegistration.cabinet_type_other && (
-                        <span className="text-gray-500"> ({selectedRegistration.cabinet_type_other})</span>
+                        <span className="text-slate-400"> ({selectedRegistration.cabinet_type_other})</span>
                       )}
                     </p>
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700">Cabinet Type</label>
-                    <p className="mt-1 text-sm text-gray-900">
+                    <label className="block text-sm font-semibold text-slate-300">Cabinet Type</label>
+                    <p className="mt-1 text-sm text-slate-100">
                       {selectedRegistration.cabinet_type}
                       {selectedRegistration.cabinet_type_other && (
-                        <span className="text-gray-500"> ({selectedRegistration.cabinet_type_other})</span>
+                        <span className="text-slate-400"> ({selectedRegistration.cabinet_type_other})</span>
                       )}
                     </p>
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700">TLS Connection</label>
-                    <p className="mt-1 text-sm text-gray-900">
+                    <label className="block text-sm font-semibold text-slate-300">TLS Connection</label>
+                    <p className="mt-1 text-sm text-slate-100">
                       {selectedRegistration.tls_connection}
                       {selectedRegistration.tls_connection_other && (
-                        <span className="text-gray-500"> ({selectedRegistration.tls_connection_other})</span>
+                        <span className="text-slate-400"> ({selectedRegistration.tls_connection_other})</span>
                       )}
                     </p>
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700">Detection I/O</label>
-                    <p className="mt-1 text-sm text-gray-900">
+                    <label className="block text-sm font-semibold text-slate-300">Detection I/O</label>
+                    <p className="mt-1 text-sm text-slate-100">
                       {selectedRegistration.detection_io}
                       {selectedRegistration.detection_io_other && (
-                        <span className="text-gray-500"> ({selectedRegistration.detection_io_other})</span>
+                        <span className="text-slate-400"> ({selectedRegistration.detection_io_other})</span>
                       )}
                     </p>
                   </div>
@@ -374,8 +374,8 @@ export default function AdminDashboard({ user, onLogout }: AdminDashboardProps) 
 
                 {selectedRegistration.estimated_install_date && (
                   <div>
-                    <label className="block text-sm font-medium text-gray-700">Estimated Install Date</label>
-                    <p className="mt-1 text-sm text-gray-900">
+                    <label className="block text-sm font-semibold text-slate-300">Estimated Install Date</label>
+                    <p className="mt-1 text-sm text-slate-100">
                       {new Date(selectedRegistration.estimated_install_date).toLocaleDateString('en-US', {
                         year: 'numeric',
                         month: 'long',
@@ -387,8 +387,8 @@ export default function AdminDashboard({ user, onLogout }: AdminDashboardProps) 
 
                 {selectedRegistration.phasing_text && (
                   <div>
-                    <label className="block text-sm font-medium text-gray-700">Phasing Information</label>
-                    <p className="mt-1 text-sm text-gray-900 whitespace-pre-wrap">
+                    <label className="block text-sm font-semibold text-slate-300">Phasing Information</label>
+                    <p className="mt-1 text-sm text-slate-100 whitespace-pre-wrap">
                       {selectedRegistration.phasing_text}
                     </p>
                   </div>
@@ -396,8 +396,8 @@ export default function AdminDashboard({ user, onLogout }: AdminDashboardProps) 
 
                 {selectedRegistration.phasing_file_path && (
                   <div>
-                    <label className="block text-sm font-medium text-gray-700">Phasing File</label>
-                    <p className="mt-1 text-sm text-primary-600">
+                    <label className="block text-sm font-semibold text-slate-300">Phasing File</label>
+                    <p className="mt-1 text-sm text-indigo-400">
                       {selectedRegistration.phasing_file_path}
                     </p>
                   </div>
@@ -405,36 +405,36 @@ export default function AdminDashboard({ user, onLogout }: AdminDashboardProps) 
 
                 {selectedRegistration.timing_files && parseTimingFiles(selectedRegistration.timing_files).length > 0 && (
                   <div>
-                    <label className="block text-sm font-medium text-gray-700">Timing Files</label>
+                    <label className="block text-sm font-semibold text-slate-300">Timing Files</label>
                     <div className="mt-1 space-y-1">
                       {parseTimingFiles(selectedRegistration.timing_files).map((file: string, index: number) => (
-                        <p key={index} className="text-sm text-primary-600">{file}</p>
+                        <p key={index} className="text-sm text-indigo-400">{file}</p>
                       ))}
                     </div>
                   </div>
                 )}
 
-                <div className="border-t pt-4">
-                  <h4 className="text-sm font-medium text-gray-700 mb-2">Contact Information</h4>
+                <div className="border-t border-slate-700 pt-4">
+                  <h4 className="text-sm font-semibold text-slate-300 mb-2">Contact Information</h4>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <div>
-                      <label className="block text-xs font-medium text-gray-500">Name</label>
-                      <p className="mt-1 text-sm text-gray-900">{selectedRegistration.contact_name}</p>
+                      <label className="block text-xs font-medium text-slate-400">Name</label>
+                      <p className="mt-1 text-sm text-slate-100">{selectedRegistration.contact_name}</p>
                     </div>
                     <div>
-                      <label className="block text-xs font-medium text-gray-500">Email</label>
-                      <p className="mt-1 text-sm text-gray-900">{selectedRegistration.contact_email}</p>
+                      <label className="block text-xs font-medium text-slate-400">Email</label>
+                      <p className="mt-1 text-sm text-slate-100">{selectedRegistration.contact_email}</p>
                     </div>
                     <div>
-                      <label className="block text-xs font-medium text-gray-500">Phone</label>
-                      <p className="mt-1 text-sm text-gray-900">{selectedRegistration.contact_phone}</p>
+                      <label className="block text-xs font-medium text-slate-400">Phone</label>
+                      <p className="mt-1 text-sm text-slate-100">{selectedRegistration.contact_phone}</p>
                     </div>
                   </div>
                 </div>
 
-                <div className="border-t pt-4">
-                  <label className="block text-xs font-medium text-gray-500">Submitted</label>
-                  <p className="mt-1 text-sm text-gray-900">{formatDate(selectedRegistration.created_at)}</p>
+                <div className="border-t border-slate-700 pt-4">
+                  <label className="block text-xs font-medium text-slate-400">Submitted</label>
+                  <p className="mt-1 text-sm text-slate-100">{formatDate(selectedRegistration.created_at)}</p>
                 </div>
               </div>
 
