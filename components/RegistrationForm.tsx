@@ -317,7 +317,10 @@ export default function RegistrationForm({ dropdownData }: RegistrationFormProps
             </label>
             <input
               type="file"
-              onChange={(e) => handleInputChange('phasingFile', e.target.files?.[0] || undefined)}
+              onChange={(e) => {
+                const file = e.target.files?.[0];
+                handleInputChange('phasingFile', file || undefined);
+              }}
               className="form-input"
               accept=".pdf,.doc,.docx,.txt,.jpg,.jpeg,.png"
             />

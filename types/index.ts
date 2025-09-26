@@ -16,7 +16,7 @@ export interface RegistrationFormData {
   detectionIO: string;
   detectionIOOther?: string;
   phasingText?: string;
-  phasingFile?: File;
+  phasingFile?: File | undefined;
   timingFiles?: File[];
   contactName: string;
   contactEmail: string;
