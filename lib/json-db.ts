@@ -56,6 +56,8 @@ const ensureDataDir = async () => {
 const readJsonFile = async <T>(filePath: string, defaultValue: T): Promise<T> => {
   try {
     if (!existsSync(filePath)) {
+      // If file doesn't exist, create it with default value
+      await writeJsonFile(filePath, defaultValue);
       return defaultValue;
     }
     const data = await readFile(filePath, 'utf-8');

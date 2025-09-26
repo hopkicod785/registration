@@ -14,7 +14,9 @@ export async function POST(request: NextRequest) {
     }
 
     // Get user from database
+    console.log('Looking for user:', username);
     const user = await jsonDb.getUserByUsername(username);
+    console.log('Found user:', user ? 'Yes' : 'No');
     if (!user) {
       return NextResponse.json(
         { error: 'Invalid credentials' },
