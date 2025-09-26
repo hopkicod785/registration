@@ -10,22 +10,23 @@ export async function POST(request: NextRequest) {
     const formData = await request.formData();
     console.log('Form data received');
     
-    // Extract form data
-    const data = {
-      intersectionName: formData.get('intersectionName') as string,
-      endUser: formData.get('endUser') as string,
-      distributor: formData.get('distributor') as string,
-      cabinetType: formData.get('cabinetType') as string,
-      cabinetTypeOther: formData.get('cabinetTypeOther') as string,
-      tlsConnection: formData.get('tlsConnection') as string,
-      tlsConnectionOther: formData.get('tlsConnectionOther') as string,
-      detectionIO: formData.get('detectionIO') as string,
-      detectionIOOther: formData.get('detectionIOOther') as string,
-      phasingText: formData.get('phasingText') as string,
-      contactName: formData.get('contactName') as string,
-      contactEmail: formData.get('contactEmail') as string,
-      contactPhone: formData.get('contactPhone') as string,
-    };
+        // Extract form data
+        const data = {
+          intersectionName: formData.get('intersectionName') as string,
+          endUser: formData.get('endUser') as string,
+          distributor: formData.get('distributor') as string,
+          cabinetType: formData.get('cabinetType') as string,
+          cabinetTypeOther: formData.get('cabinetTypeOther') as string,
+          tlsConnection: formData.get('tlsConnection') as string,
+          tlsConnectionOther: formData.get('tlsConnectionOther') as string,
+          detectionIO: formData.get('detectionIO') as string,
+          detectionIOOther: formData.get('detectionIOOther') as string,
+          phasingText: formData.get('phasingText') as string,
+          estimatedInstallDate: formData.get('estimatedInstallDate') as string,
+          contactName: formData.get('contactName') as string,
+          contactEmail: formData.get('contactEmail') as string,
+          contactPhone: formData.get('contactPhone') as string,
+        };
 
     // Validate data
     const validationResult = RegistrationSchema.safeParse(data);

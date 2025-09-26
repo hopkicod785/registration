@@ -127,6 +127,7 @@ export const RegistrationSchema = z.object({
   phasingText: z.string().optional(),
   phasingFile: z.any().optional(),
   timingFiles: z.array(z.any()).optional(),
+  estimatedInstallDate: z.string().optional(),
   contactName: z.string().min(1, 'Contact name is required'),
   contactEmail: z.string().email('Invalid email address'),
   contactPhone: z.string().min(1, 'Contact phone is required'),
