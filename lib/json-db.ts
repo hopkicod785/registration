@@ -136,36 +136,52 @@ export const jsonDb = {
   // Dropdown data functions
   getDistributors: async (): Promise<DropdownItem[]> => {
     return [
-      { id: 1, name: 'Distributor A' },
-      { id: 2, name: 'Distributor B' },
-      { id: 3, name: 'Distributor C' },
-      { id: 4, name: 'Other' }
+      { id: 1, name: 'Orange Traffic' },
+      { id: 2, name: 'ITS' },
+      { id: 3, name: 'CTC' },
+      { id: 4, name: 'Southwest Traffic Systems' },
+      { id: 5, name: 'TAPCO Swarco' },
+      { id: 6, name: 'Blackstar' },
+      { id: 7, name: 'Marlin' },
+      { id: 8, name: 'HighAngle' },
+      { id: 9, name: 'General Traffic Controls' },
+      { id: 10, name: 'TCC' },
+      { id: 11, name: 'Traffic Signal Controls' },
+      { id: 12, name: 'General Highway Products' },
+      { id: 13, name: 'Texas Highway Products' },
+      { id: 14, name: 'Transportation Solutions & Lighting' },
+      { id: 15, name: 'Utilicom' },
+      { id: 16, name: 'Paradigm' },
+      { id: 17, name: 'Other' }
     ];
   },
 
   getCabinetTypes: async (): Promise<DropdownItem[]> => {
     return [
-      { id: 1, name: 'Type A' },
-      { id: 2, name: 'Type B' },
-      { id: 3, name: 'Type C' },
-      { id: 4, name: 'Other' }
+      { id: 1, name: 'NEMA TS 1' },
+      { id: 2, name: 'NEMA TS 2' },
+      { id: 3, name: 'ATC' },
+      { id: 4, name: 'ITS' },
+      { id: 5, name: '33X' },
+      { id: 6, name: 'Other' }
     ];
   },
 
   getTLSConnections: async (): Promise<DropdownItem[]> => {
     return [
-      { id: 1, name: 'TLS 1.2' },
-      { id: 2, name: 'TLS 1.3' },
-      { id: 3, name: 'Other' }
+      { id: 1, name: 'NTCIP' },
+      { id: 2, name: 'SDLC' },
+      { id: 3, name: 'C1/C4 Harness' },
+      { id: 4, name: 'DB25 Spade Cables' }
     ];
   },
 
   getDetectionIOs: async (): Promise<DropdownItem[]> => {
     return [
-      { id: 1, name: 'I/O Type A' },
-      { id: 2, name: 'I/O Type B' },
-      { id: 3, name: 'I/O Type C' },
-      { id: 4, name: 'Other' }
+      { id: 1, name: 'DB37 to Spades' },
+      { id: 2, name: 'SDLC - 15 PIN' },
+      { id: 3, name: 'SDLC - 25/15 PIN' },
+      { id: 4, name: 'NTCIP' }
     ];
   }
 };
