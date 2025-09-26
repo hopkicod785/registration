@@ -30,7 +30,7 @@ export default function RegistrationForm({ dropdownData }: RegistrationFormProps
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
-  const handleInputChange = (field: keyof RegistrationFormData, value: string | File | File[]) => {
+  const handleInputChange = (field: keyof RegistrationFormData, value: string | File | File[] | undefined) => {
     setFormData(prev => ({ ...prev, [field]: value }));
     // Clear error when user starts typing
     if (errors[field]) {
