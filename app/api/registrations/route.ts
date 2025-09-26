@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { dbFunctions } from '@/lib/database';
+import { jsonDb } from '@/lib/json-db';
 import { RegistrationSchema } from '@/lib/database';
 import { getTokenFromRequest, verifyToken } from '@/lib/auth';
 import { saveFile, saveMultipleFiles } from '@/lib/file-upload';
@@ -80,7 +80,7 @@ export async function POST(request: NextRequest) {
     };
 
     console.log('Creating registration with data:', registrationData);
-    const result = await dbFunctions.createRegistration(registrationData);
+    const result = await jsonDb.createRegistration(registrationData);
     console.log('Registration created successfully:', result);
 
     return NextResponse.json(
@@ -118,7 +118,7 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    const registrations = await dbFunctions.getAllRegistrations();
+    const registrations = await jsonDb.getAllRegistrations();
     
     return NextResponse.json(
       { registrations },

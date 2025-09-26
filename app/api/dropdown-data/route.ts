@@ -1,12 +1,12 @@
 import { NextResponse } from 'next/server';
-import { dbFunctions } from '@/lib/database';
+import { jsonDb } from '@/lib/json-db';
 
 export async function GET() {
   try {
-    const distributors = await dbFunctions.getDistributors();
-    const cabinetTypes = await dbFunctions.getCabinetTypes();
-    const tlsConnections = await dbFunctions.getTLSConnections();
-    const detectionIOs = await dbFunctions.getDetectionIOs();
+    const distributors = await jsonDb.getDistributors();
+    const cabinetTypes = await jsonDb.getCabinetTypes();
+    const tlsConnections = await jsonDb.getTLSConnections();
+    const detectionIOs = await jsonDb.getDetectionIOs();
 
     return NextResponse.json({
       distributors,

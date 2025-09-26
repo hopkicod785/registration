@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { dbFunctions } from '@/lib/database';
+import { jsonDb } from '@/lib/json-db';
 import { verifyPassword, generateToken, createSecureCookie } from '@/lib/auth';
 
 export async function POST(request: NextRequest) {
@@ -14,7 +14,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Get user from database
-    const user = await dbFunctions.getUserByUsername(username);
+    const user = await jsonDb.getUserByUsername(username);
     if (!user) {
       return NextResponse.json(
         { error: 'Invalid credentials' },
