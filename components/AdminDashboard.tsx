@@ -17,6 +17,7 @@ interface Registration {
   phasing_text?: string;
   phasing_file_path?: string;
   timing_files?: string;
+  estimated_install_date?: string;
   contact_name: string;
   contact_email: string;
   contact_phone: string;
@@ -232,6 +233,9 @@ export default function AdminDashboard({ user, onLogout }: AdminDashboardProps) 
                       Contact
                     </th>
                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Install Date
+                    </th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                       Submitted
                     </th>
                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -256,6 +260,12 @@ export default function AdminDashboard({ user, onLogout }: AdminDashboardProps) 
                           <div className="font-medium">{registration.contact_name}</div>
                           <div className="text-gray-400">{registration.contact_email}</div>
                         </div>
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                        {registration.estimated_install_date 
+                          ? new Date(registration.estimated_install_date).toLocaleDateString('en-US')
+                          : 'Not specified'
+                        }
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                         {formatDate(registration.created_at)}
@@ -344,6 +354,19 @@ export default function AdminDashboard({ user, onLogout }: AdminDashboardProps) 
                     </p>
                   </div>
                 </div>
+
+                {selectedRegistration.estimated_install_date && (
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700">Estimated Install Date</label>
+                    <p className="mt-1 text-sm text-gray-900">
+                      {new Date(selectedRegistration.estimated_install_date).toLocaleDateString('en-US', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric'
+                      })}
+                    </p>
+                  </div>
+                )}
 
                 {selectedRegistration.phasing_text && (
                   <div>

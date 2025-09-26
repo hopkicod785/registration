@@ -16,6 +16,7 @@ interface Registration {
   phasing_text?: string;
   phasing_file_path?: string;
   timing_files?: string;
+  estimated_install_date?: string;
   contact_name: string;
   contact_email: string;
   contact_phone: string;
@@ -111,6 +112,7 @@ export const jsonDb = {
       phasing_text: data.phasingText || undefined,
       phasing_file_path: data.phasingFilePath || undefined,
       timing_files: data.timingFiles ? JSON.stringify(data.timingFiles) : undefined,
+      estimated_install_date: data.estimatedInstallDate || undefined,
       contact_name: data.contactName,
       contact_email: data.contactEmail,
       contact_phone: data.contactPhone,

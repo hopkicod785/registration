@@ -21,6 +21,7 @@ export default function RegistrationForm({ dropdownData }: RegistrationFormProps
     phasingText: '',
     phasingFile: undefined,
     timingFiles: [],
+    estimatedInstallDate: '',
     contactName: '',
     contactEmail: '',
     contactPhone: '',
@@ -117,6 +118,7 @@ export default function RegistrationForm({ dropdownData }: RegistrationFormProps
           phasingText: '',
           phasingFile: undefined,
           timingFiles: [],
+          estimatedInstallDate: '',
           contactName: '',
           contactEmail: '',
           contactPhone: '',
@@ -296,6 +298,23 @@ export default function RegistrationForm({ dropdownData }: RegistrationFormProps
         {errors.detectionIO && (
           <p className="form-error">{errors.detectionIO}</p>
         )}
+      </div>
+
+      {/* Estimated Install Date */}
+      <div>
+        <label className="form-label">
+          Estimated Install Date
+        </label>
+        <input
+          type="date"
+          value={formData.estimatedInstallDate || ''}
+          onChange={(e) => handleInputChange('estimatedInstallDate', e.target.value)}
+          className="form-input"
+          min={new Date().toISOString().split('T')[0]} // Don't allow past dates
+        />
+        <p className="text-sm text-gray-500 mt-1">
+          Select the estimated date for installation
+        </p>
       </div>
 
       {/* Phasing */}

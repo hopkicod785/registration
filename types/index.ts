@@ -18,6 +18,7 @@ export interface RegistrationFormData {
   phasingText?: string;
   phasingFile?: File | undefined;
   timingFiles?: File[];
+  estimatedInstallDate?: string;
   contactName: string;
   contactEmail: string;
   contactPhone: string;
